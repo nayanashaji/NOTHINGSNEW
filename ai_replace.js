@@ -12,9 +12,10 @@ async function fetch_synonym(word)
     catch (error)
     {
         console.error("Error fetching synonym:",error);
-    }
+    
     return word;
     }
+}
 
     async function aiRandomWordChange(index)
     {
