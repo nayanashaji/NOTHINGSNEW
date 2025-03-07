@@ -7,7 +7,8 @@ body{
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: large;
-    background-color: rgb(183, 132, 57);
+    background-color: rgb(147, 211, 234);
+    background-image: url(https://img.freepik.com/free-vector/hand-painted-watercolour-checked-background_1048-18710.jpg?t=st=1741383327~exp=1741386927~hmac=5cfe5de2fc072a7643505047867d7f8b76f0b33960eb91ac49afc081ef8391a1&w=900);
 }
 
 h1{
@@ -16,10 +17,11 @@ h1{
 }
  
 .parent{
-    background-color: rgb(99, 51, 9);
+    background-color: rgb(254, 248, 77);
     display: flex;
     border-bottom: 2px solid black;
     border-top: 2px solid black;
+    border-radius: 5px;
 
 }
     .logo{
@@ -30,8 +32,8 @@ h1{
     .header{
         display: flex;
         list-style-type: none;
-        background-color: rgb(99, 51, 9);
-        color:rgb(14, 13, 13);
+        background-color: rgb(254, 248, 77);
+        color:rgb(56, 56, 53);
         font-weight:bold;
         width: fit-content;
         padding: 20px;
@@ -42,14 +44,14 @@ h1{
             font-size: large;
         }
 #text-box{
-    line-height: 40px;
+    line-height: 50px;
     width:1000px;
     margin-top: 30px;
-    background-color: rgb(216, 176, 133);
+    font-size: larger;
+    background-color: rgb(250, 249, 209);
     border-radius:20px;
-    margin-left:100px;
-    border: 5px dotted rgba(179, 103, 42, 0.715);
-
+    margin-left:200px;
+    border: 5px dotted rgba(102, 101, 101, 0.715);
 
 }
 
@@ -62,22 +64,25 @@ input{
     text-align: left;
     font-size:medium;
     width: 500px;
-    line-height: 50px;
-    margin-top: 30px;
+    line-height: 60px;
     padding: 5px;
-    border: 5px solid ;
+    border: 3px solid ;
+    border-radius: 50px;
+    box-shadow: 5px 5px black;
 }
 
 #wpm-counter{
-    background-color: rgb(200, 189, 130);
+    background-color: rgb(43, 43, 44);
     font-size: 30px;
-    margin-top: 30px;
+    margin-top: 50px;
     border-radius: 40px;
-    width: 200px;
+    width: 300px;
+    color: aliceblue;
+    line-height: 50px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 500px;
+    margin-left: 1100px;
 }
 @keyframes shake {
     0% { transform: translateX(0); }
