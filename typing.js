@@ -12,7 +12,7 @@ function display()
     text_box.innerHTML=words
     .map((word,index) => 
         index==current_index? 
-        <span class= "highlight">${word}</span>:word)
+        `<span class= "highlight">${word}</span>`:word)
     .join(" ");
 }
 function updatewpm()
@@ -36,3 +36,4 @@ input_field.addEventListener("keydown",async function (event)
     }
     
 })
+display()
