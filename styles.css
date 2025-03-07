@@ -7,17 +7,18 @@ body{
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: large;
-    background-color: rgb(147, 211, 234);
-    background-image: url(https://img.freepik.com/free-vector/hand-painted-watercolour-checked-background_1048-18710.jpg?t=st=1741383327~exp=1741386927~hmac=5cfe5de2fc072a7643505047867d7f8b76f0b33960eb91ac49afc081ef8391a1&w=900);
+    background-color: rgb(72, 84, 117);
+    background-image: url(https://w0.peakpx.com/wallpaper/334/304/HD-wallpaper-plain-sage-green-sage-green.jpg);
+    
 }
 
 h1{
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    margin-top: 50px;
+    margin-top: 30px;
 }
  
 .parent{
-    background-color: rgb(254, 248, 77);
+    background-color: rgb(103, 160, 126);
     display: flex;
     border-bottom: 2px solid black;
     border-top: 2px solid black;
@@ -32,7 +33,7 @@ h1{
     .header{
         display: flex;
         list-style-type: none;
-        background-color: rgb(254, 248, 77);
+        background-color: rgb(103, 160, 126);
         color:rgb(56, 56, 53);
         font-weight:bold;
         width: fit-content;
@@ -46,10 +47,11 @@ h1{
 #text-box{
     line-height: 50px;
     width:1000px;
-    margin-top: 30px;
+    margin-top: 0px;
     font-size: larger;
     background-color: rgb(250, 249, 209);
     border-radius:20px;
+    padding: 10px;
     margin-left:200px;
     border: 5px dotted rgba(102, 101, 101, 0.715);
 
@@ -68,13 +70,16 @@ input{
     padding: 5px;
     border: 3px solid ;
     border-radius: 50px;
-    box-shadow: 5px 5px black;
+    box-shadow: 5px 5px rgb(99, 98, 98);
+    margin-top: 30px;
 }
-
+input::placeholder{
+    color: rgb(10, 10, 10);
+}
 #wpm-counter{
     background-color: rgb(43, 43, 44);
     font-size: 30px;
-    margin-top: 50px;
+    margin-top: 10px;
     border-radius: 40px;
     width: 300px;
     color: aliceblue;
@@ -82,7 +87,7 @@ input{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 1100px;
+    margin-left: 600px;
 }
 @keyframes shake {
     0% { transform: translateX(0); }
@@ -107,7 +112,7 @@ input{
 }
 
 #timer-display {
-    font-size: 20px;
+    font-size: 30px;
     margin-top: 20px;
     font-weight: bold;
 }
