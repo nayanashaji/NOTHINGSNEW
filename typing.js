@@ -18,7 +18,7 @@ function updatewpm()
     if(!timer) return;
     let elapsed_time=(Date.now()-timer)/60000;
     let wpm=Math.round((current_index/elapsed_time)||0);
-    wpm_counter.textContent= WPM: ${wpm};
+    wpm_counter.textContent= `WPM: ${wpm}`;
 }
 input_field.addEventListener("keydown",async function (event)
 {
