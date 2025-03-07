@@ -9,9 +9,11 @@ const wpm_counter=document.getElementById("wpm-counter")
 
 function display()
 {
-    text_box.innerHTML=words.map((word,index) => 
+    text_box.innerHTML=words
+    .map((word,index) => 
         index==current_index? 
-        <span class= "highlight"> ${word}</span>:word).join(" ");
+        <span class= "highlight">${word}</span>:word)
+        .join(" ");
 }
 function updatewpm()
 {
@@ -22,10 +24,10 @@ function updatewpm()
 }
 input_field.addEventListener("keydown",async function (event)
 {
-    if(event.key===" "&& input_field.ariaValueMax.trim()===words[current_index])
+    if(event.key===" "&& input_field.value.trim()===words[current_index])
     {
         event.preventDefault();
-        if(timer)timer=Date.now();
+        if(!timer)timer=Date.now();
         await aiRandomWordChange(current_index);
         current_index++
         input_field.value="";
@@ -34,4 +36,3 @@ input_field.addEventListener("keydown",async function (event)
     }
     
 })
-display();
