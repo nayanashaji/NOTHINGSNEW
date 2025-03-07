@@ -2,23 +2,31 @@ body{
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: large;
+    padding: 20px;
     background-color: rgb(112, 174, 190);
 }
 
 text-box{
-    line-height: 2;
-    width: auto;
-    border-radius:10%;
+    line-height: 50;
+    width: 40px;
+    justify-content: center;
+    border-radius:20px;
 }
 
-input{
+.highlight{
+    color: rgb(207, 21, 21);
+    font-weight: bold;
+}
+
+typing-input{
     text-align: left;
     font-family: fantasy;
-    width: max-content;
-    padding: 5%;
+    width: 50%;
+    padding: 50%;
 }
 
 wpm-counter{
     color: gold;
     font-size: 20px;
+    margin-top: 10%;
 }
