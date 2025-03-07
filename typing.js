@@ -11,7 +11,7 @@ function display()
 {
     text_box.innerHTML=words
     .map((word,index) => 
-        index==current_index? 
+        index===current_index? 
         `<span class= "highlight">${word}</span>`:word)
     .join(" ");
 }
