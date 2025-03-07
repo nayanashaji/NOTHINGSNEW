@@ -16,5 +16,22 @@ function display()
 function updatewpm()
 {
     if(!timer) return;
-    let elapsed_time=
+    let elapsed_time=(Date.now()-timer)/60000;
+    let wpm=Math.round((current_index/elapsed_time)||0);
+    wpm_counter.textContent= WPM: ${wpm};
 }
+input_field.addEventListener("keydown",async function (event)
+{
+    if(event.key===" "&& input_field.ariaValueMax.trim()===words[current_index])
+    {
+        event.preventDefault();
+        if(timer)timer=Date.now();
+        await aiRandomWordChange(current_index);
+        current_index++
+        input_field.value="";
+        display();
+        updatewpm()
+    }
+    
+})
+display();
