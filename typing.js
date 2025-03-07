@@ -1,16 +1,15 @@
-let org="An elf loved hisz pet ant. He tried to feed him the best he could. The ant gobbled whatever the elf would feed him. As time passed and as the ant kept gobbling, it got bigger and bigger till he couldn't fit in the room. Reluctantly, the elf gave the ant to the zoo. Everyone knew the elf's ant at the zoo, and over time, the ant became known as the 'elephant.' Today, when people go to see the elephant in the zoo, they don't know the story behind its odd name."
-let words=org.split(" ")
-let current_index=0
-let timer=null
+let org="An elf loved his pet ant. He tried to feed him the best he could. The ant gobbled whatever the elf would feed him. As time passed and as the ant kept gobbling, it got bigger and bigger till he couldn't fit in the room. Reluctantly, the elf gave the ant to the zoo. Everyone knew the elf's ant at the zoo, and over time, the ant became known as the 'elephant.' Today, when people go to see the elephant in the zoo, they don't know the story behind its odd name.";
+let words=org.split(" ");
+let current_index=0;
+let timer=null;
 
-const text_box=document.getElementById("text-box")
-const input_field=document.getElementById("input-field")
-const wpm_counter=document.getElementById("wpm-counter")
+const text_box=document.getElementById("text-box");
+const input_field=document.getElementById("input-field");
+const wpm_counter=document.getElementById("wpm-counter");
 
 function display()
 {
-    text_box.innerHTML=words
-    .map((word,index) => 
+    text_box.innerHTML=words.map((word,index) => 
         index===current_index? 
         `<span class= "highlight">${word}</span>`:word)
     .join(" ");
@@ -22,23 +21,15 @@ function updatewpm()
     let wpm=Math.round((current_index/elapsed_time)||0);
     wpm_counter.textContent= `WPM: ${wpm}`;
 }
-input_field.addEventListener("keydown",async function (event)
-{
-    if(event.key === " ")
-    {
+input_field.addEventListener("keydown", async function (event) {
+    if (event.key === " " && input_field.value.trim() === words[current_index]) {
         event.preventDefault();
-    }
-    let typed_word=input_field.value.trim()
-    let expected_word=words[current_index]
-    if(typed_word===expected_word){
-        if(!timer)
-            timer=Date.now();
-        await aiRandomWordChange(current_index);
-        current_index++
-        input_field.value="";
+        if (!timer) timer = Date.now(); // Start timer on first word
+        await aiRandomWordChange(current_index); // Call AI word replacement
+        current_index++;
+        input_field.value = "";
         display();
-        updatewpm()
+        updatewpm();
     }
-
-})
+});
 display()
