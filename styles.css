@@ -1,21 +1,56 @@
+*{
+    margin: 0px;
+    padding: 0;
+    box-sizing: border-box;
+}
 body{
     text-align: center;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: large;
-    padding: 20px;
-    background-color: rgb(168, 193, 239);
+    background-color: rgb(183, 132, 57);
 }
 
 h1{
-    margin-top: 30px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 50px;
 }
+ 
+.parent{
+    background-color: rgb(99, 51, 9);
+    display: flex;
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+
+}
+    .logo{
+        width: 80px;
+        height: 60px;
+        margin: 5px 20px;
+        border-radius: 50%;}
+    .header{
+        display: flex;
+        list-style-type: none;
+        background-color: rgb(99, 51, 9);
+        color:rgb(14, 13, 13);
+        font-weight:bold;
+        width: fit-content;
+        padding: 20px;
+        
+    }
+        .header li{
+            margin: 0px 20px;
+            font-size: large;
+        }
 #text-box{
-    line-height: 30px;
-    width: 900px;
-    margin-top: 60px;
-    background-color: rgb(227, 217, 236);
+    line-height: 40px;
+    width:1000px;
+    margin-top: 30px;
+    background-color: rgb(216, 176, 133);
     border-radius:20px;
-    margin-left: 300px;
+    margin-left:100px;
+    border: 5px dotted rgba(179, 103, 42, 0.715);
+
+
 }
 
 .highlight{
@@ -25,17 +60,22 @@ h1{
 
 input{
     text-align: left;
-    font-size: small;
+    font-size:medium;
     width: 500px;
     line-height: 50px;
-    margin-top: 50px;
+    margin-top: 30px;
     padding: 5px;
+    border: 5px solid ;
 }
 
 #wpm-counter{
     background-color: rgb(200, 189, 130);
     font-size: 30px;
-    margin-top: 100px;
+    margin-top: 30px;
     border-radius: 40px;
     width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 500px;
 }
