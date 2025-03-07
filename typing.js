@@ -14,6 +14,7 @@ function display()
         `<span class= "highlight">${word}</span>`:word)
     .join(" ");
 }
+
 function updatewpm()
 {
     if(!timer) return;
@@ -22,14 +23,27 @@ function updatewpm()
     wpm_counter.textContent= `WPM: ${wpm}`;
 }
 input_field.addEventListener("keydown", async function (event) {
-    if (event.key === " " && input_field.value.trim() === words[current_index]) {
+    if (event.key === " ") {
         event.preventDefault();
-        if (!timer) timer = Date.now(); // Start timer on first word
-        await aiRandomWordChange(current_index); // Call AI word replacement
+
+        let typed_word = input_field.value.trim();
+        let expected_word = words[current_index];
+
+        if (typed_word === expected_word) {
+        if (!timer) timer = Date.now(); 
+        await aiRandomWordChange(current_index); 
         current_index++;
         input_field.value = "";
         display();
         updatewpm();
     }
+    else {
+        input_field.classList.add("shake");
+        setTimeout(() => {
+            input_field.classList.remove("shake");
+        }, 300); 
+        input_field.value = "";
+    }
+}
 });
-display()
+display();
