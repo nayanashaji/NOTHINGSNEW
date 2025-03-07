@@ -1,3 +1,51 @@
+let selectedTime = 0; 
+let timeLeft = 0; 
+let countdown = null; 
+let timerStarted = false;
+
+const timeButtons = document.querySelectorAll(".time-btn");
+const timerDisplay = document.getElementById("timer-display");
+
+// Handle test duration selection
+timeButtons.forEach(button => {
+    button.addEventListener("click", function() {
+        selectedTime =this.dataset.time; 
+        timeLeft = selectedTime * 60; 
+        timerDisplay.textContent = `Time Left: ${timeLeft}s`;
+        resetTest(); 
+    });
+});
+
+function resetTest() {
+    clearInterval(countdown);
+    timerStarted = false;
+    timer = null; // Reset typing timer
+    current_index = 0; // Reset word index
+    input_field.value = ""; // Clear input
+    input_field.disabled = false; // Enable input
+    display();
+    updatewpm();
+}
+
+function startTimer() {
+    if (timerStarted || selectedTime === 0) return; // Start only once
+    timerStarted = true;
+
+    countdown = setInterval(() => {
+        timeLeft--;
+        timerDisplay.textContent = `Time Left: ${timeLeft}s`;
+        
+        if (timeLeft <= 0) {
+            clearInterval(countdown);
+            endTest();
+        }
+    }, 1000);
+}
+
+function endTest() {
+    input_field.disabled = true; 
+    alert(`Time's up! Your final WPM is: ${wpm_counter.textContent}`);
+}
 let org="An elf loved his pet ant. He tried to feed him the best he could. The ant gobbled whatever the elf would feed him. As time passed and as the ant kept gobbling, it got bigger and bigger till he couldn't fit in the room. Reluctantly, the elf gave the ant to the zoo. Everyone knew the elf's ant at the zoo, and over time, the ant became known as the 'elephant.' Today, when people go to see the elephant in the zoo, they don't know the story behind its odd name.";
 let words=org.split(" ");
 let current_index=0;
@@ -23,6 +71,11 @@ function updatewpm()
     wpm_counter.textContent= `WPM: ${wpm}`;
 }
 input_field.addEventListener("keydown", async function (event) {
+    if (!selectedTime) {
+        alert("Please select a test duration first.");
+        return;
+    }
+    startTimer();
     if (event.key === " ") {
         event.preventDefault();
 
@@ -42,7 +95,6 @@ input_field.addEventListener("keydown", async function (event) {
         setTimeout(() => {
             input_field.classList.remove("shake");
         }, 300); 
-        input_field.value = "";
     }
 }
 });
