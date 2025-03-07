@@ -3,6 +3,7 @@ async function fetch_synonym(word)
     try
     {
         let response=await fetch(`https://api.datamuse.com/words?ml=$ {word}&max=5`);
+        let data = await response.json();
         {
             return data[Math.floor(Math.random()*data.length)].word;  
         }

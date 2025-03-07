@@ -13,7 +13,7 @@ function display()
     .map((word,index) => 
         index==current_index? 
         <span class= "highlight">${word}</span>:word)
-        .join(" ");
+    .join(" ");
 }
 function updatewpm()
 {
