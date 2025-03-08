@@ -19,6 +19,8 @@ timeButtons.forEach(button => {
 function resetTest() {
     clearInterval(countdown);// Clear any existing countdown timer
     timerStarted = false;
+    startTime = null; // Reset test start time
+    wordTimes = []; // Reset typing speed tracker
     timer = null; // Reset typing timer
     current_index = 0; // Reset word index
     input_field.value = ""; // Clear input
@@ -63,21 +65,33 @@ function display()// Function to display words with highlighting
     .join(" ");
 }
 
-function updatewpm()// Function to update words per minute (WPM) counter
-{
-    if(!timer) return;// If typing hasn't started, do nothing
-    let elapsed_time=(Date.now()-timer)/60000;// Calculate elapsed time in minutes from millisec
-    let wpm=Math.round((current_index/elapsed_time)||0);
-    wpm_counter.textContent= `WPM: ${wpm}`;// Update WPM display
+let startTime = null; // Store test start time
+let wordTimes = []; // Track time for each correctly typed word
+
+function updatewpm() {
+    if (!startTime || wordTimes.length <2) return; // Don't calculate if test hasn't started
+    
+    let lastFiveTimes = wordTimes.slice(-5); // Get the last 5 word times
+    let elapsed_time = (lastFiveTimes[lastFiveTimes.length - 1] - startTime) / 60000; // Convert ms to minutes
+
+    let wpm = Math.round((wordTimes.length / elapsed_time) || 0); // Calculate WPM
+    wpm_counter.textContent = `WPM: ${wpm}`; // Update display
 }
+
+// Start timer on first keystroke
+input_field.addEventListener("keydown", function (event) {
+    if (!startTime) startTime = Date.now(); // Start timer on first keypress
+});
+
+        
+
 // Event listener for user input
 input_field.addEventListener("keydown", async function (event) {
     if (!selectedTime) {
         alert("Please select a test duration first.");
         return;
     }
-
-    startTimer();// Start the timer on first key press
+    startTimer();
 
     if (event.key === " ") {
         event.preventDefault();// Prevent default space behavior
@@ -87,6 +101,7 @@ input_field.addEventListener("keydown", async function (event) {
 
         if (typed_word === expected_word) {
         if (!timer) timer = Date.now(); // Start the timer when first word is typed
+        wordTimes.push(Date.now());
         await aiRandomWordChange(current_index); 
         current_index++;
         input_field.value = "";

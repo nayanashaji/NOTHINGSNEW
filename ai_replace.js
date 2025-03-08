@@ -25,7 +25,7 @@ async function fetch_synonym(word)// Function to fetch a synonym for a given wor
                 if(Math.random()<0.45)
                 {
                     let new_word=await fetch_synonym(words[index+1]);
-                    words[index+1]=new_word;// Replace the word with its synonym
+                    words[index + 1] = new_word;// Replace the word with its synonym
                     display();// Update the displayed text
                 }
             }   
