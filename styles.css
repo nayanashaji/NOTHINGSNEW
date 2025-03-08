@@ -47,7 +47,7 @@ h1{
         background-color: rgb(103, 160, 126);
         color:rgb(56, 56, 53);
         font-weight:bold;
-        width: fit-content;
+        width: 100%;
         padding: 20px;
 
     }
@@ -124,7 +124,7 @@ input::placeholder{
     cursor: pointer;
     background-color: #4CAF50;
     color: white;
-    border: none;
+    border: black 1px solid;
     border-radius: 5px;
 }
 
