@@ -18,7 +18,7 @@ async function fetch_synonym(word)// Function to fetch a synonym for a given wor
     
 }
 
-    async function aiRandomWordChange(index)// Function to randomly change a word to its synonym with 45% probability
+    async function aiRandomWordChange(index)// Function to randomly change a word to its synonym with 50% probability
     {
         if(index<words.length-1)// Ensure we're not at the last word
             {
